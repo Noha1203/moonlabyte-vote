@@ -1,1 +1,135 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
+body{
+font-family: 'Rajdhani', sans-serif;
+background:black;
+overflow:hidden;
+}
+
+.split{
+display:flex;
+height:100vh;
+width:100%;
+}
+
+.side{
+width:50%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+position:relative;
+transition:0.3s;
+}
+
+.logo{
+width:160px;
+margin-bottom:20px;
+z-index:2;
+}
+
+h2{
+color:white;
+letter-spacing:3px;
+z-index:2;
+font-family:'Orbitron',sans-serif;
+}
+
+.title{
+position:absolute;
+top:20px;
+width:100%;
+text-align:center;
+color:white;
+z-index:10;
+}
+
+.title h1{
+font-size:22px;
+letter-spacing:2px;
+}
+
+.title p{
+opacity:0.7;
+}
+
+.center-line{
+position:absolute;
+width:2px;
+height:100%;
+left:50%;
+background:linear-gradient(red,blue);
+box-shadow:0 0 15px red,0 0 15px blue;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:0.3;}
+50%{opacity:1;}
+100%{opacity:0.3;}
+}
+
+/* MOONLABYTE (blu corporate) */
+.moon{
+background:#071a3a;
+}
+
+.moon .overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle,rgba(0,140,255,0.2),transparent);
+}
+
+/* RESISTENZA (rosso ribelle) */
+.res{
+background:#2a0000;
+}
+
+.res .overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle,rgba(255,0,0,0.2),transparent);
+}
+
+.btn{
+margin-top:30px;
+padding:15px 40px;
+border:none;
+cursor:pointer;
+font-size:16px;
+letter-spacing:2px;
+font-family:'Orbitron';
+transition:0.3s;
+z-index:2;
+}
+
+.moon-btn{
+background:transparent;
+border:1px solid #00aaff;
+color:#00aaff;
+}
+
+.moon-btn:hover{
+background:#00aaff;
+color:black;
+box-shadow:0 0 20px #00aaff;
+}
+
+.res-btn{
+background:transparent;
+border:1px solid red;
+color:red;
+}
+
+.res-btn:hover{
+background:red;
+color:black;
+box-shadow:0 0 20px red;
+}
