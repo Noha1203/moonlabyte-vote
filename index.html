@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Moonlabyte - Votazione</title>
+<title>Moonlabyte Vote</title>
 
 <link rel="stylesheet" href="assets/css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -15,42 +16,46 @@
 
 <div class="split">
 
-    <section class="red">
+    <!-- MOONLABYTE -->
+    <div class="side moon">
+
+        <div class="overlay"></div>
 
         <img src="assets/images/moonlabyte.png" class="logo">
 
-        <h2>Moonlabyte Corp.</h2>
+        <h2>MOONLABYTE CORP.</h2>
 
-        <button id="moonBtn">
+        <button onclick="vote('moon')" class="btn moon-btn">
             VOTA
         </button>
 
-    </section>
+    </div>
 
-    <section class="blue">
+    <!-- RESISTENZA -->
+    <div class="side res">
+
+        <div class="overlay"></div>
 
         <img src="assets/images/resistenza.png" class="logo">
 
-        <h2>Resistenza</h2>
+        <h2>RESISTENZA</h2>
 
-        <button id="resBtn">
+        <button onclick="vote('res')" class="btn res-btn">
             VOTA
         </button>
 
-    </section>
+    </div>
 
 </div>
 
-<div class="centerText">
+<div class="center-line"></div>
 
-<h1>CHI VUOI FAR VINCERE?</h1>
-
-<p>Scegli la tua fazione</p>
-
+<div class="title">
+    <h1>CHI VUOI FAR VINCERE?</h1>
+    <p>Scegli la tua fazione</p>
 </div>
 
 <script src="assets/js/script.js"></script>
 
 </body>
-
 </html>
