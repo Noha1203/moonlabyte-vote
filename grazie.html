@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,59 +15,72 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family: Arial, sans-serif;
+font-family:Arial,sans-serif;
 color:white;
 overflow:hidden;
-transition:0.5s;
+transition:.5s;
 }
 
 .container{
 text-align:center;
-z-index:2;
+padding:20px;
 }
 
 h1{
-font-size:28px;
-letter-spacing:2px;
+font-size:32px;
+letter-spacing:3px;
 text-transform:uppercase;
-}
-
-.glow{
 animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-0%{opacity:0.6;}
-50%{opacity:1;}
-100%{opacity:0.6;}
+
+0%{
+opacity:.6;
+transform:scale(.98);
 }
 
-/* MOONLABYTE */
+50%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:.6;
+transform:scale(.98);
+}
+
+}
+
 .moon{
 background:#0a2cff;
-box-shadow: inset 0 0 120px rgba(0,150,255,0.8);
+box-shadow: inset 0 0 200px rgba(0,180,255,.9);
 }
 
-/* RESISTENZA */
 .res{
 background:#ff0000;
-box-shadow: inset 0 0 120px rgba(255,0,0,0.8);
+box-shadow: inset 0 0 200px rgba(255,0,0,.9);
 }
 
-/* effetto "energia" */
 body::before{
+
 content:"";
 position:absolute;
+left:0;
+top:0;
 width:100%;
 height:100%;
-background:radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+background:radial-gradient(circle,rgba(255,255,255,.15),transparent);
 animation:flash 2s infinite;
+
 }
 
 @keyframes flash{
-0%{opacity:0.2;}
-50%{opacity:0.6;}
-100%{opacity:0.2;}
+
+0%{opacity:.2;}
+50%{opacity:.7;}
+100%{opacity:.2;}
+
 }
 
 </style>
@@ -76,25 +90,35 @@ animation:flash 2s infinite;
 <body>
 
 <div class="container">
-    <h1 id="text" class="glow"></h1>
+
+<h1 id="text"></h1>
+
 </div>
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
-const faction = params.get("faction");
+// Legge la fazione salvata nel browser
+const faction = localStorage.getItem("vote");
 
-const body = document.body;
 const text = document.getElementById("text");
 
 if(faction === "moon"){
-    body.classList.add("moon");
-    text.innerText = "BENVENUTO NELLA MOONLABYTE";
-}
 
-if(faction === "res"){
-    body.classList.add("res");
-    text.innerText = "BENVENUTO NELLA RESISTENZA";
+    document.body.classList.add("moon");
+    text.innerHTML = "BENVENUTO<br>NELLA<br>MOONLABYTE";
+
+}
+else if(faction === "res"){
+
+    document.body.classList.add("res");
+    text.innerHTML = "BENVENUTO<br>NELLA<br>RESISTENZA";
+
+}
+else{
+
+    // Se nessuno ha votato torna alla home
+    window.location.href = "index.html";
+
 }
 
 </script>
