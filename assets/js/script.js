@@ -29,6 +29,10 @@ async function vote(faction) {
 
         if (result.success) {
 
+            // Salva la fazione scelta
+            localStorage.setItem("vote", faction);
+
+            // Vai alla pagina di benvenuto
             window.location.href = "grazie.html";
 
         } else {
