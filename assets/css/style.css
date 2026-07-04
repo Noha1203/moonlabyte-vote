@@ -35,7 +35,7 @@ background-image:
 linear-gradient(rgba(0,35,120,.45),rgba(0,35,120,.45)),
 url("../images/moon-bg.png");
 
-background-size:cover;
+background-size:contain;
 background-position:center;
 background-repeat:no-repeat;
 
@@ -47,7 +47,7 @@ background-image:
 linear-gradient(rgba(120,0,0,.35),rgba(120,0,0,.35)),
 url("../images/res-bg.png");
 
-background-size:cover;
+background-size:contain;
 background-position:center;
 background-repeat:no-repeat;
 
@@ -64,8 +64,8 @@ inset:0;
 background:inherit;
 background-size:cover;
 background-position:center;
-transform:scale(1.08);
-filter:brightness(.9);
+transform:scale(1.0);
+filter:brightness(1);
 z-index:0;
 
 }
@@ -76,7 +76,7 @@ z-index:0;
 
 position:absolute;
 inset:0;
-background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%);
+background:radial-gradient(circle,rgba(255,255,255,.08),transparent 0%);
 z-index:1;
 
 }
