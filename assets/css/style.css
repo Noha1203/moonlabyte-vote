@@ -31,53 +31,21 @@ overflow:hidden;
 
 .moon{
 
-background-image:
-linear-gradient(rgba(0,35,120,.45),rgba(0,35,120,.45)),
-url("../images/moon-bg.png");
-
-background-size:contain;
-background-position:center;
+background-image:url("../images/moon-bg.png");
+background-size:90%;
+background-position:center center;
 background-repeat:no-repeat;
+background-color:#000;
 
 }
 
 .res{
 
-background-image:
-linear-gradient(rgba(120,0,0,.35),rgba(120,0,0,.35)),
-url("../images/res-bg.png");
-
-background-size:contain;
-background-position:center;
+background-image:url("../images/res-bg.png");
+background-size:90%;
+background-position:center center;
 background-repeat:no-repeat;
-
-}
-
-/* leggero zoom delle immagini */
-
-.moon::before,
-.res::before{
-
-content:"";
-position:absolute;
-inset:0;
-background:inherit;
-background-size:cover;
-background-position:center;
-transform:scale(1.0);
-filter:brightness(1);
-z-index:0;
-
-}
-
-/* effetto luce */
-
-.overlay{
-
-position:absolute;
-inset:0;
-background:radial-gradient(circle,rgba(255,255,255,.08),transparent 0%);
-z-index:1;
+background-color:#000;
 
 }
 
@@ -88,7 +56,7 @@ z-index:1;
 width:160px;
 margin-bottom:20px;
 position:relative;
-z-index:3;
+z-index:5;
 
 }
 
@@ -99,10 +67,11 @@ font-family:'Orbitron',sans-serif;
 letter-spacing:3px;
 text-align:center;
 position:relative;
-z-index:3;
+z-index:5;
 
 text-shadow:
-0 0 10px rgba(255,255,255,.5);
+0 0 8px rgba(0,0,0,.9),
+0 0 15px rgba(0,0,0,.9);
 
 }
 
@@ -118,12 +87,13 @@ letter-spacing:3px;
 
 cursor:pointer;
 
-background:transparent;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(5px);
 
 transition:.3s;
 
 position:relative;
-z-index:3;
+z-index:5;
 
 }
 
@@ -193,15 +163,18 @@ font-size:22px;
 
 letter-spacing:2px;
 
-text-shadow:0 0 10px black;
+text-shadow:
+0 0 10px black,
+0 0 20px black;
 
 }
 
 .title p{
 
-opacity:.8;
+text-shadow:
+0 0 10px black;
 
-text-shadow:0 0 8px black;
+opacity:.9;
 
 }
 
@@ -219,13 +192,9 @@ width:2px;
 
 height:100%;
 
-background:linear-gradient(#1fb6ff,#ff2d2d);
+background:white;
 
-box-shadow:
-
-0 0 15px #1fb6ff,
-
-0 0 15px #ff2d2d;
+opacity:.25;
 
 z-index:15;
 
@@ -236,21 +205,15 @@ animation:pulse 2s infinite;
 @keyframes pulse{
 
 0%{
-
-opacity:.4;
-
+opacity:.2;
 }
 
 50%{
-
-opacity:1;
-
+opacity:.6;
 }
 
 100%{
-
-opacity:.4;
-
+opacity:.2;
 }
 
 }
