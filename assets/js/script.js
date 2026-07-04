@@ -1,15 +1,6 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbwMcBN0KAm19vmPoJZ5fpgbHFhFzELgCuA8VldCe6aO1Un4t8SNQqkdHvIWDfeGi5-V-Q/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbxeyDxzyIrnbv8nNtEdBn1zrkMwSiP7GI-rvOOBwh-cKZ5ePnaqGCKXrZdkiEezXv55Zg/exec";
 
-// Se ha già votato → redirect diretto
-const savedFaction = localStorage.getItem("vote");
-
-if (savedFaction && !window.location.pathname.includes("grazie.html")) {
-    window.location.href = "grazie.html?faction=" + savedFaction;
-}
-
-// ID univoco browser
 function getDeviceId() {
-
     let id = localStorage.getItem("deviceId");
 
     if (!id) {
@@ -20,16 +11,7 @@ function getDeviceId() {
     return id;
 }
 
-// FUNZIONE VOTO
 async function vote(faction) {
-
-    // blocco doppio voto
-    if (localStorage.getItem("vote")) {
-        window.location.href = "grazie.html?faction=" + localStorage.getItem("vote");
-        return;
-    }
-
-    navigator.vibrate?.([30, 60, 120]);
 
     const payload = {
         faction: faction,
@@ -38,28 +20,31 @@ async function vote(faction) {
 
     try {
 
-        const res = await fetch(API_URL, {
+        const response = await fetch(API_URL, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(payload)
         });
 
-        const data = await res.json().catch(() => null);
+        const result = await response.json();
 
-        console.log("Risposta server:", data);
+        if (result.success) {
 
-        if (!data || data.success === false) {
-            alert(data?.message || "Errore nel voto");
-            return;
+            window.location.href = "grazie.html";
+
+        } else {
+
+            alert(result.message || result.error);
+
         }
-
-        localStorage.setItem("vote", faction);
-
-        window.location.href = "grazie.html?faction=" + faction;
 
     } catch (err) {
 
         console.error(err);
-        alert("Errore di connessione al server.");
+        alert("Errore di connessione.");
 
     }
+
 }
