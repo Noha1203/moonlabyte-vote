@@ -25,15 +25,16 @@ async function vote(faction) {
             body: JSON.stringify(payload)
         });
 
-        const result = await response.json();
+        const resultText = await response.text();
+        console.log("RISPOSTA SERVER:", resultText);
 
-        if (result.success) {
+        if (resultText.includes("ok")) {
 
             window.location.href = "grazie.html";
 
         } else {
 
-            alert(result.message || result.error);
+            alert(resultText);
 
         }
 
