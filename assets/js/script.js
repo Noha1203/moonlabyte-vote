@@ -1,5 +1,6 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbykICEzgMnkIU5cwyJo-GAkSM3mZJ31dlJB7uM-GEG_DnCj3Y3TQZFcSLiwnHfoDGko/exec";
 
+// Genera un ID univoco per questo browser
 function getDeviceId() {
     let id = localStorage.getItem("deviceId");
 
@@ -9,6 +10,13 @@ function getDeviceId() {
     }
 
     return id;
+}
+
+// Se l'utente ha già votato, lo rimanda direttamente alla sua fazione
+const savedVote = localStorage.getItem("vote");
+
+if (savedVote && !window.location.pathname.includes("grazie.html")) {
+    window.location.href = "grazie.html?faction=" + savedVote;
 }
 
 async function vote(faction) {
@@ -29,25 +37,30 @@ async function vote(faction) {
 
         if (result.success) {
 
-            // memorizza la fazione scelta
+            // salva la fazione scelta
             localStorage.setItem("vote", faction);
 
-            // vai alla schermata corretta
+            // vai alla pagina della fazione
             window.location.href = "grazie.html?faction=" + faction;
 
         } else {
 
-            alert(result.message || result.error);
+            alert(result.message || "Hai già votato.");
+
+            // Se aveva già votato, rimandalo comunque alla sua fazione
+            const voto = localStorage.getItem("vote");
+
+            if (voto) {
+                window.location.href = "grazie.html?faction=" + voto;
+            }
 
         }
 
-    } catch (err) {
+    } catch (error) {
 
-        console.error(err);
-        alert("Errore di connessione.");
+        console.error(error);
+        alert("Errore di connessione con il server.");
 
     }
-
-}
 
 }
