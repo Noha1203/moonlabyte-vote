@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbxeyDxzyIrnbv8nNtEdBn1zrkMwSiP7GI-rvOOBwh-cKZ5ePnaqGCKXrZdkiEezXv55Zg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbykICEzgMnkIU5cwyJo-GAkSM3mZJ31dlJB7uM-GEG_DnCj3Y3TQZFcSLiwnHfoDGko/exec";
 
 function getDeviceId() {
     let id = localStorage.getItem("deviceId");
