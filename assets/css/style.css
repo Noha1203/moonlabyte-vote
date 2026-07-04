@@ -5,131 +5,252 @@ box-sizing:border-box;
 }
 
 body{
-font-family: 'Rajdhani', sans-serif;
+font-family:'Rajdhani',sans-serif;
 background:black;
 overflow:hidden;
 }
 
 .split{
 display:flex;
-height:100vh;
 width:100%;
+height:100vh;
 }
 
 .side{
+position:relative;
 width:50%;
 height:100%;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-position:relative;
-transition:0.3s;
+overflow:hidden;
 }
 
+/* ---------- SFONDI ---------- */
+
+.moon{
+
+background-image:
+linear-gradient(rgba(0,35,120,.45),rgba(0,35,120,.45)),
+url("../images/moon-bg.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+}
+
+.res{
+
+background-image:
+linear-gradient(rgba(120,0,0,.35),rgba(120,0,0,.35)),
+url("../images/res-bg.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+}
+
+/* leggero zoom delle immagini */
+
+.moon::before,
+.res::before{
+
+content:"";
+position:absolute;
+inset:0;
+background:inherit;
+background-size:cover;
+background-position:center;
+transform:scale(1.08);
+filter:brightness(.9);
+z-index:0;
+
+}
+
+/* effetto luce */
+
+.overlay{
+
+position:absolute;
+inset:0;
+background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%);
+z-index:1;
+
+}
+
+/* ---------- CONTENUTO ---------- */
+
 .logo{
+
 width:160px;
 margin-bottom:20px;
-z-index:2;
+position:relative;
+z-index:3;
+
 }
 
 h2{
+
 color:white;
-letter-spacing:3px;
-z-index:2;
 font-family:'Orbitron',sans-serif;
-}
-
-.title{
-position:absolute;
-top:20px;
-width:100%;
+letter-spacing:3px;
 text-align:center;
-color:white;
-z-index:10;
-}
+position:relative;
+z-index:3;
 
-.title h1{
-font-size:22px;
-letter-spacing:2px;
-}
+text-shadow:
+0 0 10px rgba(255,255,255,.5);
 
-.title p{
-opacity:0.7;
-}
-
-.center-line{
-position:absolute;
-width:2px;
-height:100%;
-left:50%;
-background:linear-gradient(red,blue);
-box-shadow:0 0 15px red,0 0 15px blue;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{opacity:0.3;}
-50%{opacity:1;}
-100%{opacity:0.3;}
-}
-
-/* MOONLABYTE (blu corporate) */
-.moon{
-background:#071a3a;
-}
-
-.moon .overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:radial-gradient(circle,rgba(0,140,255,0.2),transparent);
-}
-
-/* RESISTENZA (rosso ribelle) */
-.res{
-background:#2a0000;
-}
-
-.res .overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:radial-gradient(circle,rgba(255,0,0,0.2),transparent);
 }
 
 .btn{
-margin-top:30px;
-padding:15px 40px;
-border:none;
-cursor:pointer;
+
+margin-top:35px;
+padding:15px 42px;
+
 font-size:16px;
-letter-spacing:2px;
 font-family:'Orbitron';
-transition:0.3s;
-z-index:2;
+
+letter-spacing:3px;
+
+cursor:pointer;
+
+background:transparent;
+
+transition:.3s;
+
+position:relative;
+z-index:3;
+
 }
 
+/* ---------- PULSANTE MOON ---------- */
+
 .moon-btn{
-background:transparent;
-border:1px solid #00aaff;
-color:#00aaff;
+
+border:2px solid #1fb6ff;
+color:#1fb6ff;
+
 }
 
 .moon-btn:hover{
-background:#00aaff;
+
+background:#1fb6ff;
 color:black;
-box-shadow:0 0 20px #00aaff;
+
+box-shadow:
+0 0 20px #1fb6ff,
+0 0 40px #1fb6ff;
+
 }
 
+/* ---------- PULSANTE RES ---------- */
+
 .res-btn{
-background:transparent;
-border:1px solid red;
-color:red;
+
+border:2px solid #ff2d2d;
+color:#ff2d2d;
+
 }
 
 .res-btn:hover{
-background:red;
+
+background:#ff2d2d;
 color:black;
-box-shadow:0 0 20px red;
+
+box-shadow:
+0 0 20px #ff2d2d,
+0 0 40px #ff2d2d;
+
+}
+
+/* ---------- TITOLO ---------- */
+
+.title{
+
+position:absolute;
+top:22px;
+left:50%;
+transform:translateX(-50%);
+width:100%;
+
+text-align:center;
+
+color:white;
+
+z-index:20;
+
+}
+
+.title h1{
+
+font-family:'Orbitron',sans-serif;
+
+font-size:22px;
+
+letter-spacing:2px;
+
+text-shadow:0 0 10px black;
+
+}
+
+.title p{
+
+opacity:.8;
+
+text-shadow:0 0 8px black;
+
+}
+
+/* ---------- LINEA CENTRALE ---------- */
+
+.center-line{
+
+position:absolute;
+
+left:50%;
+
+top:0;
+
+width:2px;
+
+height:100%;
+
+background:linear-gradient(#1fb6ff,#ff2d2d);
+
+box-shadow:
+
+0 0 15px #1fb6ff,
+
+0 0 15px #ff2d2d;
+
+z-index:15;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+opacity:.4;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.4;
+
+}
+
 }
