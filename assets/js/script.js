@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycby5b1efVYOhOCnBgnUcsZDgM-bUjmtJ-5XFPc2fY7QMMjAxhHnhVcC_c38Zx13X8Yzm/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwSMgNdNC60QcTGpwgynO2ALEuZFualYrNGXQ8uX_I8h1JKPzIpYa_j0AlOcgaOyhcTzQ/exec";
 
 // Se l'utente ha già votato, lo rimanda subito alla sua fazione
 const savedFaction = localStorage.getItem("vote");
