@@ -32,7 +32,7 @@ overflow:hidden;
 .moon{
 
 background-image:url("../images/moon-bg.png");
-background-size:contain;
+background-size:cover;
 background-position:center center;
 background-repeat:no-repeat;
 background-color:#000;
@@ -42,7 +42,7 @@ background-color:#000;
 .res{
 
 background-image:url("../images/res-bg.png");
-background-size:contain;
+background-size:cover;
 background-position:center center;
 background-repeat:no-repeat;
 background-color:#000;
