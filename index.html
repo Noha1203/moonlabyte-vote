@@ -55,6 +55,14 @@
     <p>Scegli la tua fazione</p>
 </div>
 
+<script>
+const savedFaction = localStorage.getItem("vote");
+
+if (savedFaction) {
+    window.location.href = "grazie.html?faction=" + savedFaction;
+}
+</script>
+
 <script src="assets/js/script.js"></script>
 
 </body>
