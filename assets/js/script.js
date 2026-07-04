@@ -1,5 +1,11 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbykICEzgMnkIU5cwyJo-GAkSM3mZJ31dlJB7uM-GEG_DnCj3Y3TQZFcSLiwnHfoDGko/exec";
 
+const savedVote = localStorage.getItem("vote");
+
+if(savedVote && !window.location.pathname.includes("grazie.html")){
+    window.location.href = "grazie.html";
+}
+
 function getDeviceId() {
     let id = localStorage.getItem("deviceId");
 
