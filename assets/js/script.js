@@ -15,7 +15,7 @@ async function vote(faction) {
 
     const payload = {
         faction: faction,
-        deviceId: getDeviceId()https://github.com/Noha1203/moonlabyte-vote/blob/main/assets/js/script.js
+        deviceId: getDeviceId()
     };
 
     try {
@@ -29,7 +29,11 @@ async function vote(faction) {
 
         if (result.success) {
 
-            window.location.href = "grazie.html";
+            // memorizza la fazione scelta
+            localStorage.setItem("vote", faction);
+
+            // vai alla schermata corretta
+            window.location.href = "grazie.html?faction=" + faction;
 
         } else {
 
@@ -43,5 +47,7 @@ async function vote(faction) {
         alert("Errore di connessione.");
 
     }
+
+}
 
 }
