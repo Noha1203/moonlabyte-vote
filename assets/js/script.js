@@ -25,23 +25,17 @@ async function vote(faction) {
             body: JSON.stringify(payload)
         });
 
-        const result = await response.json();
+        const text = await response.text();
+        const result = JSON.parse(text);
 
         if (result.success) {
-
             window.location.href = "grazie.html";
-
         } else {
-
-            alert(result.message || result.error);
-
+            alert(result.message || result.error || "Errore nel voto");
         }
 
     } catch (err) {
-
         console.error(err);
         alert("Errore di connessione.");
-
     }
-
 }
