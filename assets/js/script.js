@@ -15,7 +15,7 @@ async function vote(faction) {
 
     const payload = {
         faction: faction,
-        deviceId: getDeviceId()
+        deviceId: getDeviceId()https://github.com/Noha1203/moonlabyte-vote/blob/main/assets/js/script.js
     };
 
     try {
@@ -25,17 +25,23 @@ async function vote(faction) {
             body: JSON.stringify(payload)
         });
 
-        const text = await response.text();
-        const result = JSON.parse(text);
+        const result = await response.json();
 
         if (result.success) {
+
             window.location.href = "grazie.html";
+
         } else {
-            alert(result.message || result.error || "Errore nel voto");
+
+            alert(result.message || result.error);
+
         }
 
     } catch (err) {
+
         console.error(err);
         alert("Errore di connessione.");
+
     }
+
 }
