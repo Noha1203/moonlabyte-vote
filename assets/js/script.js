@@ -1,13 +1,13 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbwSMgNdNC60QcTGpwgynO2ALEuZFualYrNGXQ8uX_I8h1JKPzIpYa_j0AlOcgaOyhcTzQ/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwMcBN0KAm19vmPoJZ5fpgbHFhFzELgCuA8VldCe6aO1Un4t8SNQqkdHvIWDfeGi5-V-Q/exec";
 
-// Se l'utente ha già votato, lo rimanda subito alla sua fazione
+// Se ha già votato → redirect diretto
 const savedFaction = localStorage.getItem("vote");
 
 if (savedFaction && !window.location.pathname.includes("grazie.html")) {
     window.location.href = "grazie.html?faction=" + savedFaction;
 }
 
-// Genera un ID univoco per questo browser
+// ID univoco browser
 function getDeviceId() {
 
     let id = localStorage.getItem("deviceId");
@@ -20,15 +20,16 @@ function getDeviceId() {
     return id;
 }
 
+// FUNZIONE VOTO
 async function vote(faction) {
 
-    // Se ha già votato
+    // blocco doppio voto
     if (localStorage.getItem("vote")) {
         window.location.href = "grazie.html?faction=" + localStorage.getItem("vote");
         return;
     }
 
-    navigator.vibrate?.([40, 60, 120]);
+    navigator.vibrate?.([30, 60, 120]);
 
     const payload = {
         faction: faction,
@@ -37,13 +38,19 @@ async function vote(faction) {
 
     try {
 
-        await fetch(API_URL, {
+        const res = await fetch(API_URL, {
             method: "POST",
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            },
             body: JSON.stringify(payload)
         });
+
+        const data = await res.json().catch(() => null);
+
+        console.log("Risposta server:", data);
+
+        if (!data || data.success === false) {
+            alert(data?.message || "Errore nel voto");
+            return;
+        }
 
         localStorage.setItem("vote", faction);
 
@@ -51,10 +58,8 @@ async function vote(faction) {
 
     } catch (err) {
 
-        alert("Errore di connessione.");
-
         console.error(err);
+        alert("Errore di connessione al server.");
 
     }
-
 }
