@@ -1,228 +1,326 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:'Rajdhani',sans-serif;
-background:black;
-overflow:hidden;
+    font-family:'Rajdhani',sans-serif;
+    background:#000;
+    overflow:hidden;
 }
 
+/* ----------------------------- */
+/* LAYOUT */
+/* ----------------------------- */
+
 .split{
-display:flex;
-width:100%;
-height:100vh;
+    display:flex;
+    width:100%;
+    height:100vh;
 }
 
 .side{
-position:relative;
-width:50%;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-overflow:hidden;
+    position:relative;
+    width:50%;
+    height:100%;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* ---------- SFONDI ---------- */
+/* ----------------------------- */
+/* SFONDI */
+/* ----------------------------- */
 
 .moon{
 
-background-image:url("../images/moon-bg.png");
-background-size:cover;
-background-position:center center;
-background-repeat:no-repeat;
-background-color:#000;
+    background-image:url("../images/moon-bg.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-color:#000;
 
 }
 
 .res{
 
-background-image:url("../images/res-bg.png");
-background-size:cover;
-background-position:center center;
-background-repeat:no-repeat;
-background-color:#000;
+    background-image:url("../images/res-bg.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-color:#000;
 
 }
 
-/* ---------- CONTENUTO ---------- */
-
-.logo{
-
-width:160px;
-margin-bottom:20px;
-position:relative;
-z-index:5;
-
-}
-
-h2{
-
-color:white;
-font-family:'Orbitron',sans-serif;
-
-font-size:clamp(16px,2.6vw,28px);
-
-letter-spacing:0.15em;
-
-text-align:center;
-
-width:90%;
-
-line-height:1.2;
-
-position:relative;
-z-index:5;
-
-text-shadow:
-0 0 8px rgba(0,0,0,.9),
-0 0 15px rgba(0,0,0,.9);
-
-}
+/* ----------------------------- */
+/* PULSANTI */
+/* ----------------------------- */
 
 .btn{
 
-margin-top:35px;
-padding:15px 42px;
+    position:absolute;
 
-font-size:16px;
-font-family:'Orbitron';
+    top:50%;
+    left:50%;
 
-letter-spacing:3px;
+    transform:translate(-50%,-50%);
 
-cursor:pointer;
+    width:170px;
+    height:58px;
 
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(5px);
+    border-radius:6px;
 
-transition:.3s;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(6px);
 
-position:relative;
-z-index:5;
+    font-family:'Orbitron',sans-serif;
+    font-size:16px;
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    z-index:20;
 
 }
 
-/* ---------- PULSANTE MOON ---------- */
+/* MOON */
 
 .moon-btn{
 
-border:2px solid #1fb6ff;
-color:#1fb6ff;
+    border:2px solid #1fb6ff;
+    color:#1fb6ff;
 
 }
 
 .moon-btn:hover{
 
-background:#1fb6ff;
-color:black;
+    background:#1fb6ff;
+    color:#000;
 
-box-shadow:
-0 0 20px #1fb6ff,
-0 0 40px #1fb6ff;
+    box-shadow:
+    0 0 20px #1fb6ff,
+    0 0 40px #1fb6ff;
 
 }
 
-/* ---------- PULSANTE RES ---------- */
+/* RES */
 
 .res-btn{
 
-border:2px solid #ff2d2d;
-color:#ff2d2d;
+    border:2px solid #ff2d2d;
+    color:#ff2d2d;
 
 }
 
 .res-btn:hover{
 
-background:#ff2d2d;
-color:black;
+    background:#ff2d2d;
+    color:#000;
 
-box-shadow:
-0 0 20px #ff2d2d,
-0 0 40px #ff2d2d;
+    box-shadow:
+    0 0 20px #ff2d2d,
+    0 0 40px #ff2d2d;
 
 }
 
-/* ---------- TITOLO ---------- */
+/* ----------------------------- */
+/* BLOCCO INFERIORE */
+/* ----------------------------- */
+
+.faction-info{
+
+    position:absolute;
+
+    bottom:6vh;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    z-index:15;
+
+}
+
+/* ----------------------------- */
+/* LOGHI */
+/* ----------------------------- */
+
+.logo{
+
+    width:clamp(90px,18vw,180px);
+
+    height:auto;
+
+    margin-bottom:18px;
+
+    filter:drop-shadow(0 0 10px rgba(0,0,0,.8));
+
+}
+
+/* ----------------------------- */
+/* NOMI FAZIONI */
+/* ----------------------------- */
+
+h2{
+
+    color:white;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:clamp(15px,2vw,26px);
+
+    letter-spacing:.18em;
+
+    text-align:center;
+
+    line-height:1.2;
+
+    width:100%;
+
+    text-shadow:
+
+    0 0 10px rgba(0,0,0,.9),
+
+    0 0 20px rgba(0,0,0,.9);
+
+}
+
+/* ----------------------------- */
+/* TITOLO */
+/* ----------------------------- */
 
 .title{
 
-position:absolute;
-top:22px;
-left:50%;
-transform:translateX(-50%);
-width:100%;
+    position:absolute;
 
-text-align:center;
+    top:22px;
 
-color:white;
+    left:50%;
 
-z-index:20;
+    transform:translateX(-50%);
+
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+
+    z-index:50;
 
 }
 
 .title h1{
 
-font-family:'Orbitron',sans-serif;
+    font-family:'Orbitron',sans-serif;
 
-font-size:22px;
+    font-size:clamp(18px,2vw,26px);
 
-letter-spacing:2px;
+    letter-spacing:2px;
 
-text-shadow:
-0 0 10px black,
-0 0 20px black;
+    text-shadow:
+
+    0 0 10px black,
+
+    0 0 20px black;
 
 }
 
 .title p{
 
-text-shadow:
-0 0 10px black;
+    margin-top:6px;
 
-opacity:.9;
+    font-size:clamp(13px,1.4vw,18px);
+
+    opacity:.9;
+
+    text-shadow:
+
+    0 0 10px black;
 
 }
 
-/* ---------- LINEA CENTRALE ---------- */
+/* ----------------------------- */
+/* LINEA CENTRALE */
+/* ----------------------------- */
 
 .center-line{
 
-position:absolute;
+    position:absolute;
 
-left:50%;
+    left:50%;
+    top:0;
 
-top:0;
+    width:2px;
+    height:100%;
 
-width:2px;
+    background:white;
 
-height:100%;
+    opacity:.25;
 
-background:white;
+    z-index:40;
 
-opacity:.25;
-
-z-index:15;
-
-animation:pulse 2s infinite;
+    animation:pulse 2s infinite;
 
 }
 
 @keyframes pulse{
 
-0%{
-opacity:.2;
+    0%{opacity:.2;}
+    50%{opacity:.6;}
+    100%{opacity:.2;}
+
 }
 
-50%{
-opacity:.6;
+/* ----------------------------- */
+/* SMARTPHONE */
+/* ----------------------------- */
+
+@media (max-width:700px){
+
+.logo{
+
+    width:110px;
+
 }
 
-100%{
-opacity:.2;
+h2{
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+}
+
+.btn{
+
+    width:140px;
+    height:50px;
+
+    font-size:15px;
+
+}
+
+.title h1{
+
+    font-size:18px;
+
+}
+
+.title p{
+
+    font-size:13px;
+
 }
 
 }
