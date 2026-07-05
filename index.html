@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,56 +16,78 @@
 
 <body>
 
-<div class="split">
-
-    <!-- MOONLABYTE -->
-    <div class="side moon">
-
-        <div class="overlay"></div>
-
-        <img src="assets/images/moonlabyte.png" class="logo">
-
-        <h2>MOONLABYTE CORP.</h2>
-
-        <button onclick="vote('moon')" class="btn moon-btn">
-            VOTA
-        </button>
-
-    </div>
-
-    <!-- RESISTANCE -->
-    <div class="side res">
-
-        <div class="overlay"></div>
-
-        <img src="assets/images/resistenza.png" class="logo">
-
-        <h2>RESISTANCE</h2>
-
-        <button onclick="vote('res')" class="btn res-btn">
-            VOTA
-        </button>
-
-    </div>
-
-</div>
-
-<div class="center-line"></div>
-
 <div class="title">
     <h1>CHI VUOI FAR VINCERE?</h1>
     <p>Scegli la tua fazione</p>
 </div>
 
+<div class="center-line"></div>
+
+<div class="split">
+
+    <!-- ===================== -->
+    <!-- MOONLABYTE -->
+    <!-- ===================== -->
+
+    <section class="side moon">
+
+        <button onclick="vote('moon')" class="btn moon-btn">
+            VOTA
+        </button>
+
+        <div class="faction-info">
+
+            <img
+                src="assets/images/moonlabyte.png"
+                alt="Moonlabyte"
+                class="logo">
+
+            <h2>MOONLABYTE CORP.</h2>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- RESISTENZA -->
+    <!-- ===================== -->
+
+    <section class="side res">
+
+        <button onclick="vote('res')" class="btn res-btn">
+            VOTA
+        </button>
+
+        <div class="faction-info">
+
+            <img
+                src="assets/images/resistenza.png"
+                alt="Resistenza"
+                class="logo">
+
+            <h2>RESISTENZA</h2>
+
+        </div>
+
+    </section>
+
+</div>
+
 <script>
+
 const savedFaction = localStorage.getItem("vote");
 
-if (savedFaction) {
+if(savedFaction){
+
     window.location.href = "grazie.html?faction=" + savedFaction;
+
 }
+
 </script>
 
 <script src="assets/js/script.js"></script>
 
 </body>
+
 </html>
